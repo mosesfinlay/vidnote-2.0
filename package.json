@@ -1,0 +1,14 @@
+{
+  "name": "vdnote-2.0",
+  "version": "1.0.0",
+  "description": "vdnote is a note taking app for youtube videos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "author": "Moses Finlay",
+  "license": "GPL-3.0"
+}
