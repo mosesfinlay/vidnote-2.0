@@ -1,0 +1,41 @@
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  color: #12263f;
+  background-color: #f9fbfd;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 15px 0 0;
+  border: 1px solid #e3ebf6;
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.small-icon {
+  width: 20px;
+  height: 20px;
+}
+.nav-link {
+  color: #6e84a3;
+}
+
+.login-btn, .signup-btn {
+  background-color: #12263f;
+  text: white;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  background-color: #0056b3;
+  color: white;
+}
