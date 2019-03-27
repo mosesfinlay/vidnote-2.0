@@ -1,5 +1,5 @@
 # Techdegree Project Twelve
-## vidNote 2.0
+## vdNote 2.0
 
 This project is an improved way of sharing noteworthy moments from Youtube videos.
 
