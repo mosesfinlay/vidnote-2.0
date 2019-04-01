@@ -5,9 +5,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const path = require("path");
 const app = express();
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Require all routes
 const userRoutes = require("./routes/user");

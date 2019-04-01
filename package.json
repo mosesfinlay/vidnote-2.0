@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/concurrently \"node index.js\" \"cd client && npm start\"",
-    "build": "./node_modules/.bin/concurrently \"npm install\" \"cd client && npm install && npm build\"",
+    "build": "./node_modules/.bin/concurrently \"npm install\" \"cd client && npm install && npm run build\"",
     "test": ""
   },
   "author": "Moses Finlay",
@@ -20,7 +20,8 @@
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "mongoose": "^5.4.19"
+    "mongoose": "^5.4.19",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "concurrently": "^4.1.0"

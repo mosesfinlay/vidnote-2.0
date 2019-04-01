@@ -3,23 +3,65 @@
 
 This project is an improved way of sharing noteworthy moments from Youtube videos.
 
-## ✨ Features
+## Technologies Used
 
-- ### 👤 User Accounts
-  In the latest version of vdNote we have introduced the ability to sign up and save your videos and notes!
+- ### Backend - Node.js & Express
+- ### Frontend - Custom CSS + Bootstrap & React
+- ### Database - Document based: MongoDB
+- ### Heroku - Used to deploy the web app
 
-- ### 🐦 Twitter Integration
-  Now, you not only have the option to login with twitter. But you can also tweet your notes directly from vdNote!
+## APIs Used
 
-- ### 💎 Improved Design
-  We have completely redesigned vdNote. Everything from the buttons to notes to were you take notes! Which makes for a much better overall experience.
+- ### YouTube (no api key required)
+  This project uses YouTube's API to interact with an embedded iframe.
 
-- ### 👋 A New Name
-  vidNote vs. the old name (vdnote), makes the app a lot more understandable and easier to go by.
+- ### Twitter (WIP) (api key required)
+  This project uses Twitter's API to login and tweet within the app.
 
-- ### 🌑 Dark Mode
-  With dark mode taking notes becomes a lot easier on your eyes.
+- ### TBD
+  
 
-## Usage
+## How to get up and running locally
 
-### --- WIP ---
+Clone the repo from github
+```
+git clone https://github.com/mosesfinlay/vidnote-2.0.git
+```
+
+Move into the project directory
+```
+cd vidnote-2.0
+```
+
+### Run the following commands in the route of the project directory
+
+Build the app - this will install all necessary dependencies and create a "build" folder inside the "client" folder
+```
+npm run build
+```
+
+Create a .env file
+```
+touch .env
+```
+
+Inside the .env file you just created
+```
+SESSION_SECRET=Replace-This
+TWITTER_CONSUMER_KEY=Replace-This
+TWITTER_CONSUMER_SECRET=Replace-This
+```
+
+Start the app
+```
+npm start
+```
+
+To view the app
+```
+React will automatically open a new tab in your browser at localhost:3000
+```
+
+### How to get a Twitter consumer key and consumer secret
+
+--- (WIP) ---
