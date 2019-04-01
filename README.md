@@ -35,7 +35,7 @@ cd vidnote-2.0
 
 ### Run the following commands in the route of the project directory
 
-Build the app - this will install all necessary dependencies and create a "build" folder inside the "client" folder
+Install the dependencies
 ```
 npm run install-all
 ```
