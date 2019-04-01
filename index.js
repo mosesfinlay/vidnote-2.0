@@ -24,7 +24,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 // Connect to the database
-mongoose.connect("mongodb://localhost:27017/vdnote");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/vdnote");
 
 const db = mongoose.connection;
 
