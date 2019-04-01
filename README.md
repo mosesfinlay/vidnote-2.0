@@ -37,7 +37,7 @@ cd vidnote-2.0
 
 Build the app - this will install all necessary dependencies and create a "build" folder inside the "client" folder
 ```
-npm run build
+npm run install-all
 ```
 
 Create a .env file
