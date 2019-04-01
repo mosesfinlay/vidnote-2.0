@@ -42,8 +42,8 @@ db.on("error", err => console.error(`DB Connection Error: ${err}`));
 // On database connection
 db.once("open", () => console.log("DB Connection Successful"));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 // Use routes
