@@ -9,7 +9,7 @@
   "scripts": {
     "start": "./node_modules/.bin/concurrently \"node index.js\" \"cd client && npm start\"",
     "install-all": "./node_modules/.bin/concurrently \"npm install\" \"cd client && npm install\"",
-    "build-Heroku": "./node_modules/.bin/concurrently \"npm install\" \"cd client && npm install && npm run build\"",
+    "heroku-postbuild": "./node_modules/.bin/concurrently \"npm install\" \"cd client && npm install && npm run build\"",
     "test": ""
   },
   "author": "Moses Finlay",
