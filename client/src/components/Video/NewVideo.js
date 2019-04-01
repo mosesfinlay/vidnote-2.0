@@ -6,10 +6,10 @@ import { getUserAccount, postUserLogin } from "../../apiRequests";
 // Import components
 import Error from "../Misc/Error";
 
-class LoginForm extends Component {
+class NewVideo extends Component {
   state = {
-    email: "",
-    password: "",
+    title: "",
+    videoLink: "",
     error: {},
     onlyShowErrorMessage: false
   }
@@ -18,16 +18,16 @@ class LoginForm extends Component {
     getUserAccount(({ data }) => {
       if (data.status === 200) {
         this.setState({
-          error: {
-            message: "You are already signed in."
-          },
-          onlyShowErrorMessage: true
+          error: null,
+          onlyShowErrorMessage: false
         });
         this.props.setLoggedInStatus(true);
       } else {
         this.setState({
-          error: null,
-          onlyShowErrorMessage: false
+          error: {
+            message: "You are not authorized to view this page."
+          },
+          onlyShowErrorMessage: true
         });
         this.props.setLoggedInStatus(false);
       }
@@ -39,18 +39,19 @@ class LoginForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     
-    const { email, password } = this.state;
-    const { setLoggedInStatus } = this.props;
+    const { title, videoLink } = this.state;
+    const { history } = this.props;
 
-    postUserLogin({ email, password }, ({ data }) => {
-      if (data.error) {
-        this.setState({ error: data.error });
-      } else {
-        this.setState({ error: null });
-        setLoggedInStatus(true);
-        window.location.pathname = "/";
-      }
-    });
+    // postUserLogin({ title, videoLink }, ({ data }) => {
+    //   if (data.error) {
+    //     this.setState({ error: data.error });
+    //   } else {
+    //     this.setState({ error: null });
+    //     this.props.setLoggedInStatus(true);
+    //     history.push(`video/${data.video._id}`);
+    //   }
+    // });
+    console.log(title, videoLink);
   }
   
   render() {
@@ -65,47 +66,43 @@ class LoginForm extends Component {
       }
 
       if (isMongoDuplicateError) {
-        error = "Oops, it looks like that account already exists. Try logging in."
+        error = "Oops, it looks like that video already exists. Try logging in."
       } else {
         error = this.state.error.message;
       }
     }
 
     if (this.state.onlyShowErrorMessage) {
-      return (
-        <div className="col-md-6 mx-auto mt-5">
-          <Error error={error} />
-        </div>
-      );
+      return <Error error={error} />;
     } else {
       return (
-        <div className="col-md-6 mx-auto mt-5">
-          <h1 className="mb-5">Login to vdNote</h1>
+        <React.Fragment>
+          <h1 className="mb-5">New Video</h1>
           
           <Error error={error} />
 
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input type="email" className="form-control" name="email" id="email" placeholder="Enter email" 
-                value={this.state.email}
+              <label htmlFor="title">Title</label>
+              <input type="text" className="form-control" name="title" id="title" placeholder="Enter title" 
+                value={this.state.title}
                 onChange={this.handleInputChange}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" className="form-control" name="password" id="password" placeholder="Password" 
-                value={this.state.password}
+              <label htmlFor="videoLink">YouTube Video Link</label>
+              <input type="url" className="form-control" name="videoLink" id="videoLink" placeholder="YouTube Video Link" 
+                value={this.state.videoLink}
                 onChange={this.handleInputChange}
               />
             </div>
             
-            <button type="submit" className="btn text-white">Login</button>
+            <button type="submit" className="btn text-white">Create Video</button>
           </form>
-        </div>
+        </React.Fragment>
       );
     }
   }
 }
 
-export default LoginForm;
+export default NewVideo;

@@ -4,38 +4,56 @@ body {
   background-color: #f9fbfd;
 }
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  padding: 15px 0 0;
-  border: 1px solid #e3ebf6;
-}
-
-.sidebar-sticky {
-  position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .small-icon {
   width: 20px;
   height: 20px;
 }
+
 .nav-link {
-  color: #6e84a3;
+  color: #6e84a3 !important;
+  transition: all 0.2s;
 }
 
-.login-btn, .signup-btn {
+.nav-link:hover {
+  color: #0056b3 !important;
+}
+
+.nav-link-active {
+  color: #0056b3 !important;
+}
+
+.btn {
   background-color: #12263f;
-  text: white;
+  color: white;
 }
 
-.login-btn:hover, .signup-btn:hover {
+.btn:hover {
   background-color: #0056b3;
   color: white;
+}
+
+.navbar-light {
+  border-bottom: 1px solid grey;
+  border: 1px solid #e3ebf6;
+}
+
+li.list-group-item {
+  box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, .03);
+}
+
+.note-list {
+  height: 440px;
+  overflow-y: scroll;
+}
+
+.note-list::-webkit-scrollbar {
+  background: transparent;
+}
+
+.border-radius {
+  border-radius: 4px;
+}
+
+.twitter-blue {
+  color: #38A1F3;
 }

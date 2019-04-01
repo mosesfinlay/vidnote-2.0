@@ -5,7 +5,7 @@ const NoteSchema = new Schema({
   timeStamp: {
     type: Number,
   },
-  note: {
+  text: {
     type: String
   }
 });

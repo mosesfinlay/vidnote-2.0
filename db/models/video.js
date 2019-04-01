@@ -10,6 +10,10 @@ const VideoSchema = new Schema({
     type: String,
     required: true
   },
+  duration: {
+    type: String,
+    required: true
+  },
   videoLink: {
     type: String,
     required: true

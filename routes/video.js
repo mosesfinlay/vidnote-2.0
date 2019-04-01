@@ -2,11 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 // Required Models
-const User = require("../db/models/user");
+const Video = require("../db/models/video");
+const Note = require("../db/models/video");
 
-// POST /signup
-router.post("/signup", (req, res, next) => {
-  
-});
+
 
 module.exports = router;

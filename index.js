@@ -1,10 +1,17 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const app = express();
 
-// Require all main routes
-const routes = require("./routes/");
+app.use(express.static(path.join(__dirname, "build")));
+
+// Require all routes
+const userRoutes = require("./routes/user");
+const videoRoutes = require("./routes/video");
 
 app.use(bodyParser.json());
 
@@ -20,14 +27,27 @@ mongoose.connect("mongodb://localhost:27017/vdnote");
 
 const db = mongoose.connection;
 
+// Use sessions for tracking logins
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: db })
+}));
+
 // Handle database connection error
 db.on("error", err => console.error(`DB Connection Error: ${err}`));
 
 // On database connection
 db.once("open", () => console.log("DB Connection Successful"));
 
-// Use main routes
-app.use(routes);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+// Use routes
+app.use(userRoutes);
+app.use(videoRoutes);
 
 // Not Found (404) Route
 app.use((req, res) => {

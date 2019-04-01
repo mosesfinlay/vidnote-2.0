@@ -4,10 +4,14 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "axios": "^0.18.0",
+    "copy-text-to-clipboard": "^2.0.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-player": "^1.10.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "secstamp": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
