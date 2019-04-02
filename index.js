@@ -42,13 +42,13 @@ db.on("error", err => console.error(`DB Connection Error: ${err}`));
 // On database connection
 db.once("open", () => console.log("DB Connection Successful"));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
-
 // Use routes
 app.use(userRoutes);
 app.use(videoRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 
 // Not Found (404) Route
 app.use((req, res) => {
