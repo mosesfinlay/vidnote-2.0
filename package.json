@@ -1,10 +1,10 @@
 {
-  "name": "vdnote-2.0",
+  "name": "vidnote-2.0",
   "version": "1.0.0",
-  "description": "vdnote is a note taking app for youtube videos",
+  "description": "vidnote is a note taking app for youtube videos",
   "main": "index.js",
   "repository": {
-    "url": "https://github.com/mosesfinlay/vdnote-2.0"
+    "url": "https://github.com/mosesfinlay/vidnote-2.0"
   },
   "scripts": {
     "start": "./node_modules/.bin/concurrently \"node index.js\" \"cd client && npm start\"",
