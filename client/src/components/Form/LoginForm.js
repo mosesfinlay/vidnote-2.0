@@ -79,7 +79,7 @@ class LoginForm extends Component {
       );
     } else {
       return (
-        <div className="col-md-6 mx-auto mt-5">
+        <div className="col-md-6 mx-auto my-5 pb-5">
           <h1 className="mb-5">Login to vdNote</h1>
           
           <Error error={error} />

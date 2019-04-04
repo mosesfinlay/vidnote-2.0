@@ -12,10 +12,11 @@ class URLForm extends Component {
     e.preventDefault();
     
     const { url } = this.state;
-    const { setVideoURL } = this.props;
+    const { setVideoURL, setError } = this.props;
 
     if (url.indexOf("https://www.youtube.com/watch?v=") !== -1 || 
         url.indexOf("https://m.youtube.com/watch?v=") !== -1) {
+          setError(false);
           setVideoURL(url);
         }
   }

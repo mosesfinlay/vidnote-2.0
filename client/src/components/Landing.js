@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 
 // Import components
-import NoteTaker from "./NoteTaker/NoteTaker.js"
+import NoteTaker from "./NoteTaker/NoteTaker"
 
 class Landing extends Component {
   render() {
-    const videoURL = "https://www.youtube.com/watch?v=rEdl2Uetpvo";
-    const notes = [];
-
     return (
       <div className="row">
-        <NoteTaker 
-          videoURL={videoURL}
-          notes={notes}
+        <NoteTaker
+          match={null}
+          loggedIn={this.props.loggedIn}
+          disableUrlForm={false}
+          updateVideo={false}
         />
       </div>
     );

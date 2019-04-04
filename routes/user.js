@@ -23,6 +23,7 @@ router.get("/api/user/account", (req, res, next) => {
       } else {
         res.json({ 
           account: {
+            id: req.session.userId,
             name: user.name,
             email: user.email
           },

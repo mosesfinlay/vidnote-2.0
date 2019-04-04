@@ -55,7 +55,7 @@ class Account extends Component {
           <h1 className="mb-5">Account</h1>
           <Error error={error} />
           <p>Name: {name}</p>
-          <p>Email address: {email}</p>
+          <p className="mb-5 pb-5">Email address: {email}</p>
         </React.Fragment>
       ); 
     }

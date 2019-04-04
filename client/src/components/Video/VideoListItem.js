@@ -3,16 +3,23 @@ import { Link } from "react-router-dom";
 
 class Video extends Component {
   render() {
-    const { title, duration, id } = this.props;
+    const { title, duration, url, thumbnail, id } = this.props;
     const videoDuration = Math.ceil(duration / 60);
 
     return (
-      <Link className="text-reset text-decoration-none mb-3" to={`/videos/${id}`}>
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          {title}
-          <span className="text-muted">{videoDuration} min.</span>
-        </li>
-      </Link>
+      <div className="col-sm-4 mb-3">
+        <div className="card">
+          <img src={thumbnail} className="card-img-top" alt="YouTube Video Thumbnail" />
+          <div className="card-body pb-3">
+            <a href={url} className="text-reset">
+              <h5 className="card-title">{title.length > 20 ? `${title.slice(0, 20)}...` : title}</h5>
+            </a>
+            <p className="card-text">{videoDuration} min watch</p>
+            <Link to={`/videos/${id}`} className="btn mr-3 mb-1">View Notes</Link>
+            <Link to={`/videos/${id}/delete`} className="btn mb-1">Delete Video</Link>
+          </div>
+        </div>
+      </div>
     );
   }
 }

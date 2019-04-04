@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // Import API requests
-import { getUserAccount, getUserLogout } from "../apiRequests";
+import { getUserAccount, getUserLogout, deleteVideo } from "../apiRequests";
 
 // Import components
 import Nav from "./Navigation/Nav";
 import Landing from "./Landing";
+import NoteTaker from "./NoteTaker/NoteTaker"
 import Videos from "./Video/Videos";
 import Account from "./User/Account";
 import SignUpForm from "./Form/SignUpForm";
@@ -68,7 +69,7 @@ class App extends Component {
           <div className="row">  
             <main role="main" className="col-md-9 mx-auto col-lg-10 mt-5">
               <Switch>
-                <Route exact path="/" component={Landing} />
+                <Route exact path="/" component={() => <Landing loggedIn={this.state.loggedIn}/>} />
 
                 {/* Logged Out Routes */}
                 <Route exact path="/signup" component={({ history }) =>
@@ -103,6 +104,29 @@ class App extends Component {
 
                   return null;
                 }} />
+
+                {/* Editing a user's video */}
+                <Route exact path="/videos/:videoId" component={({ match }) => 
+                  <div className="row">
+                    <NoteTaker 
+                      match={match} 
+                      loggedIn={this.state.loggedIn} 
+                      disableUrlForm={true}
+                      updateVideo={true}
+                    />
+                  </div>
+                } />
+
+                {/* Deleting a user's video */}
+                <Route exact path="/videos/:videoId/delete" component={({ history, match }) => {
+                  deleteVideo(match.params.videoId, ({ data }) => {
+                    return history.push("/videos");
+                  });
+                  
+                  return null;
+                }} />
+
+                {/* Not Found */}
                 <Route component={NotFound404} />
               </Switch>
             </main>

@@ -5,25 +5,24 @@ import NoteListItem from "./NoteListItem";
 
 class NoteList extends Component {
   render() {
-    const { notes, deleteAllNotes, deleteNote } = this.props;
+    const { notes, deleteAllNotes, deleteNote, videoURL } = this.props;
 
     return (
       <React.Fragment>
         <hr />
         {notes.length > 5 ?
           <p className="text-muted small px-auto mb-3">
-            Scroll for more notes
+            Scroll for more notes &nbsp;
             <i className="fas fa-angle-double-down"></i>
           </p>
-          : 
-            null
+          : null
         }
 
         {
           notes.length > 0 ? 
             <button className="btn text-muted bg-transparent px-1 pt-0 mb-3" 
               onClick={() => deleteAllNotes()}
-            >Clear all {"🗑"}</button>
+            >Delete notes {"🗑"}</button>
           : null
         }
         <ul className="list-group mb-5 pb-5 note-list">
@@ -40,6 +39,7 @@ class NoteList extends Component {
               timeStamp={timeStamp}
               deleteNote={deleteNote}
               id={index}
+              videoURL={videoURL}
             />
           )}
         </ul>

@@ -11,18 +11,29 @@ const VideoSchema = new Schema({
     required: true
   },
   duration: {
-    type: String,
+    type: Number,
     required: true
   },
-  videoLink: {
+  url: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  thumbnail: {
     type: String,
     required: true
   },
   notes: {
     type: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Note"
+        timeStamp: {
+          type: Number,
+          required: true
+        },
+        text: {
+          type: String,
+          required: true
+        }
       }
     ],
   }
