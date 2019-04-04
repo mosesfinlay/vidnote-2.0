@@ -34,9 +34,9 @@ cd vidnote-2.0
 
 ### Run the following commands in the route of the project directory
 
-Install the dependencies
+Install all the dependencies
 ```
-npm install
+npm install-all
 ```
 
 Create a .env file
