@@ -6,7 +6,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "copy-text-to-clipboard": "^2.0.0",
-    "dotenv": "^7.0.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-player": "^1.10.0",

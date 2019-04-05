@@ -10,7 +10,7 @@ import UpdateVideo from "./UpdateVideo";
 import EmailButton from "./EmailButton";
 import NoteList from "./NoteList";
 import Error from "../Misc/Error";
-import { getOneVideo } from "../../apiRequests";
+import { getOneVideo, getVideoInfo } from "../../apiRequests";
 
 class NoteTaker extends Component {
   state = {
@@ -61,14 +61,13 @@ class NoteTaker extends Component {
   playerOnReady = player => {
     const videoId = this.state.videoURL.replace("https://www.youtube.com/watch?v=", "");
 
-    axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet,statistics&fields=items(id,snippet,statistics)`)
-      .then(res => {
-        this.setState({ 
-          videoTitle: res.data.items[0].snippet.title,
-          videoThumbnail: res.data.items[0].snippet.thumbnails.standard,
-          player
-        });
+    getVideoInfo(videoId, ({ data }) => {
+      this.setState({ 
+        videoTitle: data.data.items[0].snippet.title,
+        videoThumbnail: data.data.items[0].snippet.thumbnails.standard,
+        player
       });
+    });
   }
 
   componentDidMount() {

@@ -1,8 +1,25 @@
 const express = require("express");
 const router = express.Router();
+const https = require("https");
 
 // Required Models
 const Video = require("../db/models/video");
+
+// GET /api/youtube/api/:videoId
+router.get("/api/youtube/api/:videoId", (req, res, next) => {
+  const apiURL = `https://www.googleapis.com/youtube/v3/videos?id=${req.params.videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet,statistics&fields=items(id,snippet,statistics)`;
+  let body = "";
+
+  https.get(apiURL, req => {
+    req.on("data", data => body += data);
+
+    req.on("end", () => {
+      const json = JSON.parse(body);
+      
+      res.json({ data: json });
+    });
+  });
+});
 
 // GET /api/user/videos/all
 router.get("/api/user/videos/all", (req, res, next) => {

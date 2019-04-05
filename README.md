@@ -47,17 +47,6 @@ touch .env
 Inside the .env file
 ```
 SESSION_SECRET=Replace-This
-```
-
-### Inside the client/src/ directory
-
-Create a .env file
-```
-touch .env
-```
-
-Inside the .env file
-```
 REACT_APP_YOUTUBE_API_KEY=Replace-This
 ```
 

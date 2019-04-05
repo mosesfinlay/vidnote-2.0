@@ -43,3 +43,8 @@ export const updateVideo = (videoId, body, callback) =>
 // Delete a specific video
 export const deleteVideo = (videoId, callback) => 
   axios.delete(`/api/user/videos/${videoId}/delete`).then(callback);
+
+// Get info on a specific video from YouTube's Data API
+export const getVideoInfo = (videoId, callback) => 
+  axios.get(`/api/youtube/api/${videoId}`).then(callback);
+    
