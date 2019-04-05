@@ -55,8 +55,6 @@ SESSION_SECRET=Replace-This
 REACT_APP_YOUTUBE_API_KEY=Replace-This
 ```
 
-### Back in the route directory
-
 Start the app
 ```
 npm start
