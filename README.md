@@ -41,7 +41,7 @@ npm install
 
 Install frontend dependencies
 ```
-npm install-client
+npm run install-client
 ```
 
 Create a .env file
