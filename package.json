@@ -12,6 +12,9 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": ""
   },
+  "engines": {
+    "node": "11.9.0"
+  },
   "author": "Moses Finlay",
   "license": "GPL-3.0",
   "dependencies": {
