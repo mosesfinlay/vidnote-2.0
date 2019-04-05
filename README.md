@@ -51,12 +51,7 @@ SESSION_SECRET=Replace-This
 
 ### Inside the client/src/ directory
 
-Create a config.js file
-```
-touch config.js
-```
-
-Inside the config.js file you created
+Add your API key in the config.js file
 ```
 const youtubeApiKey = Replace-This;
 export default youtubeApiKey;
