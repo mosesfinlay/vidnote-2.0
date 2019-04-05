@@ -34,9 +34,14 @@ cd vidnote-2.0
 
 ### Run the following commands in the root of the project directory
 
-Install all the dependencies
+Install main project dependencies
 ```
-npm install-all
+npm install
+```
+
+Install frontend dependencies
+```
+npm install-client
 ```
 
 Create a .env file
