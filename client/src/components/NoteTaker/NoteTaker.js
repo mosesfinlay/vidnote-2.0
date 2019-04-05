@@ -64,25 +64,14 @@ class NoteTaker extends Component {
   playerOnReady = player => {
     const videoId = this.state.videoURL.replace("https://www.youtube.com/watch?v=", "");
 
-    if (process.env.NODE_ENV === "production") {
-      axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet,statistics&fields=items(id,snippet,statistics)`)
-        .then(res => {
-          this.setState({ 
-            videoTitle: res.data.items[0].snippet.title,
-            videoThumbnail: res.data.items[0].snippet.thumbnails.standard,
-            player
-          });
+    axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet,statistics&fields=items(id,snippet,statistics)`)
+      .then(res => {
+        this.setState({ 
+          videoTitle: res.data.items[0].snippet.title,
+          videoThumbnail: res.data.items[0].snippet.thumbnails.standard,
+          player
         });
-    } else if (process.env.NODE_ENV === "development") {
-      axios.get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${youtubeApiKey}&part=snippet,statistics&fields=items(id,snippet,statistics)`)
-        .then(res => {
-          this.setState({ 
-            videoTitle: res.data.items[0].snippet.title,
-            videoThumbnail: res.data.items[0].snippet.thumbnails.standard,
-            player
-          });
-        });
-    }
+      });
   }
 
   componentDidMount() {

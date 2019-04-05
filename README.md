@@ -32,7 +32,7 @@ Move into the project directory
 cd vidnote-2.0
 ```
 
-### Run the following commands in the route of the project directory
+### Run the following commands in the root of the project directory
 
 Install all the dependencies
 ```
@@ -51,10 +51,14 @@ SESSION_SECRET=Replace-This
 
 ### Inside the client/src/ directory
 
-Add your API key in the config.js file
+Create a .env file
 ```
-const youtubeApiKey = Replace-This;
-export default youtubeApiKey;
+touch .env
+```
+
+Inside the .env file
+```
+REACT_APP_YOUTUBE_API_KEY=Replace-This
 ```
 
 ### Back in the route directory
