@@ -4,7 +4,6 @@ import axios from "axios";
 
 // Import components
 import URLForm from "./NoteTakerForm/URLForm";
-import youtubeApiKey from "../../config";
 import NoteForm from "./NoteTakerForm/NoteForm";
 import SaveVideo from "./SaveVideo";
 import UpdateVideo from "./UpdateVideo";
@@ -12,8 +11,6 @@ import EmailButton from "./EmailButton";
 import NoteList from "./NoteList";
 import Error from "../Misc/Error";
 import { getOneVideo } from "../../apiRequests";
-
-require("dotenv").config();
 
 class NoteTaker extends Component {
   state = {
