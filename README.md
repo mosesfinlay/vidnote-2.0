@@ -12,14 +12,14 @@ This project is an improved way of sharing noteworthy moments from Youtube video
 
 ## APIs Used
 
-- ### YouTube (api key required)
+- ### YouTube
   This project uses YouTube's Iframe Player and Data API.
 
-- ### Twitter Login (WIP) (api key required)
+- ### Twitter Login
   This project uses Twitter's API to login.
 
-- ### Google Login (WIP) (api key required)
-  This project uses Google's API to login.
+- ### Facebook Login
+  This project uses Facebook's API to login.
 
 ### Be sure to have Node.js & MongoDB installed on your machine
 

@@ -26,6 +26,8 @@ function callbackUrl(provider) {
   }
 }
 
+console.log(callbackUrl("twitter"), callbackUrl("facebook"));
+
 function generateOrFindUser(accessToken, refreshToken, profile, done) {
   if (profile.emails) {
     User.findOneAndUpdate(
