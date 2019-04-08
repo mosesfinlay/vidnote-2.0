@@ -58,6 +58,8 @@ SESSION_SECRET=Replace-This
 REACT_APP_YOUTUBE_API_KEY=Replace-This
 TWITTER_CONSUMER_KEY=Replace-This
 TWITTER_CONSUMER_SECRET=Replace-This
+FACEBOOK_APP_ID=Replace-This
+FACEBOOK_APP_SECRET=Replace-This
 ```
 
 ### In a new terminal tab
@@ -74,8 +76,20 @@ Start the app
 npm start
 ```
 
-To view the app: Running `npm start` will run the project on `port:5000` and build the frontend of the app. After the React build process has completed visit `http://127.0.0.1:5000/` in your browser.
+To view the app: Running `npm start` will run the project on `port:5000` and build the frontend of the app. After the React build process has completed visit port `5000` in your browser.
+
+#### Note: When using the login feature with Twitter be sure that the URL is 127.0.0.1:5000 and not localhost:5000. 
+
+#### When using the login feature with Facebook be sure that the URL is localhost:5000 and not 127.0.0.1:5000
 
 ### How to get a YouTube Developer API key
 
 Visit [YouTube's API docs](https://developers.google.com/youtube/v3/getting-started) for how to get the api key.
+
+### How to get a Twitter consumer key and consumer secret
+
+Head over to [Twitter's Developer Platform](https://developer.twitter.com/) and create a new app.
+
+### How to get a Facebook app id and app secret
+
+Create a new app on [Facebook's Developer Platform](https://developers.facebook.com/).

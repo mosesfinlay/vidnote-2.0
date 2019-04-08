@@ -9,25 +9,24 @@ const MongoStore = require("connect-mongo")(session);
 const path = require("path");
 const passport = require("passport");
 const TwitterStrategy = require("passport-twitter").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const User = require("./db/models/user");
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
-let twitterCallbackUrl = "";
-
-if (process.env.NODE_ENV === "production") {
-  twitterCallbackUrl = "https://vidnote.herokuapp.com/api/auth/twitter/return";
-} else if (process.env.NODE_ENV === "development") {
-  twitterCallbackUrl = "http://127.0.0.1:5000/api/auth/twitter/return";
+function callbackUrl(provider) {
+  if (process.env.NODE_ENV === "production") {
+    return `https://vidnote.herokuapp.com/api/auth/${provider}/return`;
+  } else if (process.env.NODE_ENV === "development") {
+    if (provider === "twitter") {
+      return `http://127.0.0.1:5000/api/auth/${provider}/return`;
+    } else if (provider === "facebook") {
+      return `http://localhost:5000/api/auth/${provider}/return`;
+    }
+  }
 }
 
-// Configure Twitter Strategy 
-passport.use(new TwitterStrategy({
-  consumerKey: process.env.TWITTER_CONSUMER_KEY,
-  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  userProfileURL: "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true",
-  callbackURL: twitterCallbackUrl
-}, (accessToken, refreshToken, profile, done) => {
+function generateOrFindUser(accessToken, refreshToken, profile, done) {
   if (profile.emails) {
     User.findOneAndUpdate(
       { email: profile.emails[0].value }, 
@@ -43,7 +42,23 @@ passport.use(new TwitterStrategy({
     const emailError = new Error("Your email privacy settings prevent you from logging in.");
     done(emailError, null);
   }
-}));
+}
+
+// Configure Twitter Strategy 
+passport.use(new TwitterStrategy({
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+  userProfileURL: "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true",
+  callbackURL: callbackUrl("twitter")
+}, generateOrFindUser));
+
+// Configure Facebook Strategy 
+passport.use(new FacebookStrategy({
+  clientID: process.env.FACEBOOK_APP_ID,
+  clientSecret: process.env.FACEBOOK_APP_SECRET,
+  callbackURL: callbackUrl("facebook"),
+  profileFields: ["id", "displayName", "photos", "email"]
+}, generateOrFindUser));
 
 passport.serializeUser((user, done) => done(null, user._id));
 passport.deserializeUser((userId, done) => User.findById(userId, done));
