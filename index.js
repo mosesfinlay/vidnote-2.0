@@ -15,9 +15,9 @@ const User = require("./db/models/user");
 app.use(express.static(path.join(__dirname, "client/build")));
 
 function callbackUrl(provider) {
-  if (process.env.NODE_ENV === "production") {
+  if (app.get("env") === "production") {
     return `https://vidnote.herokuapp.com/api/auth/${provider}/return`;
-  } else if (process.env.NODE_ENV === "development") {
+  } else if (app.get("env") === "development") {
     if (provider === "twitter") {
       return `http://127.0.0.1:5000/api/auth/${provider}/return`;
     } else if (provider === "facebook") {
@@ -25,8 +25,6 @@ function callbackUrl(provider) {
     }
   }
 }
-
-console.log(callbackUrl("twitter"), callbackUrl("facebook"));
 
 function generateOrFindUser(accessToken, refreshToken, profile, done) {
   if (profile.emails) {
