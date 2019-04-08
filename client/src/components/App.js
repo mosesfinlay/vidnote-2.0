@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // Import API requests
-import { getUserAccount, getUserLogout, deleteVideo } from "../apiRequests";
+import { getUserAccount, deleteVideo, getUserLogout } from "../apiRequests";
 
 // Import components
 import Nav from "./Navigation/Nav";
@@ -10,7 +10,6 @@ import Landing from "./Landing";
 import NoteTaker from "./NoteTaker/NoteTaker"
 import Videos from "./Video/Videos";
 import Account from "./User/Account";
-import SignUpForm from "./Form/SignUpForm";
 import LoginForm from "./Form/LoginForm";
 import NotFound404 from "./Misc/NotFound404";
 
@@ -18,16 +17,6 @@ class App extends Component {
   state = {
     loggedIn: false
   }
-  
-  /* ### TODO ###
-
-    1: Add twitter functionality
-
-    2: Add backend functionality for creating videos and notes
-
-    3: Write tests for the backend
-
-  */
 
   componentDidMount() {
     getUserAccount(({ data }) => {
@@ -47,12 +36,11 @@ class App extends Component {
         { title: "Home", to: "/", icon: "home" },
         { title: "Videos", to: "/videos", icon: "document" },
         { title: "Account", to: "/account", icon: "account" },
-        { title: "Logout", to: "/logout", icon: "home" },
+        { title: "Logout", to: "/logout", icon: "home" }
       );
     } else {
       items.push(
-        { title: "Login", to: "/login", icon: "home"},
-        { title: "Sign Up", to: "/signup", icon: "home"}
+        { title: "Login", to: "/login", icon: "home"}
       );
     }
 
@@ -72,11 +60,6 @@ class App extends Component {
                 <Route exact path="/" component={() => <Landing loggedIn={this.state.loggedIn}/>} />
 
                 {/* Logged Out Routes */}
-                <Route exact path="/signup" component={({ history }) =>
-                  <SignUpForm
-                    setLoggedInStatus={() => this.setLoggedInStatus}
-                  />
-                } />
                 <Route exact path="/login" component={({ history }) => 
                   <LoginForm
                     setLoggedInStatus={() => this.setLoggedInStatus}

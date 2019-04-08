@@ -16,11 +16,19 @@ class NoteListItem extends Component {
         
           <div>
             <button className="btn bg-transparent px-1 pt-0">
-              <p className="twitter-blue mb-0">
+              <a 
+                href={`http://twitter.com/home?status="${text}" - ${videoURL}=${timeStamp}s via vidnote`} 
+                className="twitter-blue mb-0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-twitter"></i>
-              </p>
+              </a>
             </button>
-            <button className="btn bg-transparent px-1 pt-0" onClick={() => copy(text)} >{"📋"}</button>
+            <button className="btn bg-transparent px-1 pt-0" onClick={() => {
+              alert("Copied!");
+              copy(text);
+            }} >{"📋"}</button>
             <button className="btn bg-transparent px-1 pt-0" onClick={() => deleteNote(id)} >{"🗑️"}</button>
           </div>
         </div>

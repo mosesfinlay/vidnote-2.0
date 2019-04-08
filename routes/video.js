@@ -23,7 +23,7 @@ router.get("/api/youtube/api/:videoId", (req, res, next) => {
 
 // GET /api/user/videos/all
 router.get("/api/user/videos/all", (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.user) {
     return res.json({ 
       error: { 
         message: "You are not authorized to view this page.", 
@@ -32,7 +32,7 @@ router.get("/api/user/videos/all", (req, res, next) => {
     });
   }
 
-  Video.find({ user: req.session.userId })
+  Video.find({ user: req.user._id })
     .exec((err, notes) => {
       if (err) {
         res.json({ error: err });
@@ -45,7 +45,7 @@ router.get("/api/user/videos/all", (req, res, next) => {
 
 // GET /api/user/videos/:videoId
 router.get("/api/user/videos/:videoId", (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.user) {
     return res.json({ 
       error: { 
         message: "You are not authorized to view this page.", 
@@ -67,7 +67,7 @@ router.get("/api/user/videos/:videoId", (req, res, next) => {
 
 // PUT /api/user/videos/:videoId/update
 router.put("/api/user/videos/:videoId/update", (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.user) {
     return res.json({ 
       error: { 
         message: "You are not authorized to perform this action.", 
@@ -101,7 +101,7 @@ router.put("/api/user/videos/:videoId/update", (req, res, next) => {
 
 // POST /api/user/videos/new
 router.post("/api/user/videos/new", (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.user) {
     return res.json({ 
       error: { 
         message: "You are not authorized to perform this action.", 
@@ -122,7 +122,6 @@ router.post("/api/user/videos/new", (req, res, next) => {
     Video.create(req.body, (err, video) => {
       if (err) {
         return res.json({ error: err });
-        // return next(err);
       } else {
         res.json({ 
           video,
@@ -139,7 +138,7 @@ router.post("/api/user/videos/new", (req, res, next) => {
 
 // DELETE /api/user/videos/:videoId/delete
 router.delete("/api/user/videos/:videoId/delete", (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.user) {
     return res.json({ 
       error: { 
         message: "You are not authorized to perform this action.", 

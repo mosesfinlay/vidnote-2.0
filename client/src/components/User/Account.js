@@ -10,6 +10,7 @@ class Account extends Component {
   state = {
     name: "",
     email: "",
+    photo: "",
     error: {},
     onlyShowErrorMessage: false
   }
@@ -21,6 +22,7 @@ class Account extends Component {
           this.setState({
             name: null,
             email: null,
+            photo: null,
             error: data.error,
             onlyShowErrorMessage: true
           });
@@ -30,6 +32,7 @@ class Account extends Component {
         this.setState({
           name: data.account.name,
           email: data.account.email,
+          photo: data.account.photo,
           error: null,
           onlyShowErrorMessage: false
         });
@@ -39,7 +42,7 @@ class Account extends Component {
   }
 
   render() {
-    const { name, email } = this.state;
+    const { name, email, photo } = this.state;
     let error = "";
 
     // Error messages
@@ -54,6 +57,7 @@ class Account extends Component {
         <React.Fragment>
           <h1 className="mb-5">Account</h1>
           <Error error={error} />
+          <img src={photo} className="mb-3 p-1 border rounded" alt="Profile Pic" />
           <p>Name: {name}</p>
           <p className="mb-5 pb-5">Email address: {email}</p>
         </React.Fragment>

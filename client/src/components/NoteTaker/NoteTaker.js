@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import YouTube from "react-player";
-import axios from "axios";
 
 // Import components
 import URLForm from "./NoteTakerForm/URLForm";

@@ -15,10 +15,13 @@ This project is an improved way of sharing noteworthy moments from Youtube video
 - ### YouTube (api key required)
   This project uses YouTube's Iframe Player and Data API.
 
-- ### Twitter (WIP) (api key required)
-  This project uses Twitter's API to login and tweet within the app.
+- ### Twitter Login (WIP) (api key required)
+  This project uses Twitter's API to login.
 
-- ### TBD
+- ### Google Login (WIP) (api key required)
+  This project uses Google's API to login.
+
+### Be sure to have Node.js & MongoDB installed on your machine
 
 ## How to get up and running locally
 
@@ -53,17 +56,25 @@ Inside the .env file
 ```
 SESSION_SECRET=Replace-This
 REACT_APP_YOUTUBE_API_KEY=Replace-This
+TWITTER_CONSUMER_KEY=Replace-This
+TWITTER_CONSUMER_SECRET=Replace-This
 ```
+
+### In a new terminal tab
+
+Before running the app be sure start MongoDB
+```
+mongod
+```
+
+### Back in the previous terminal tab
 
 Start the app
 ```
 npm start
 ```
 
-To view the app
-```
-React will automatically open a new tab in your browser at localhost:3000
-```
+To view the app: Running `npm start` will run the project on `port:5000` and build the frontend of the app. After the React build process has completed visit `http://127.0.0.1:5000/` in your browser.
 
 ### How to get a YouTube Developer API key
 

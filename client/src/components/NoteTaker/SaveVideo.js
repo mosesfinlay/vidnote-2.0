@@ -37,7 +37,6 @@ class SaveVideo extends Component {
             if (data.error.code === 11000) {
               setError("You have already saved that video.");
             } else {
-              console.log(data.error);
               setError("An error occurred. Play this video and try again.");
             }
           } else {
