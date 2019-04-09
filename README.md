@@ -82,14 +82,23 @@ To view the app: Running `npm start` will run the project on `port:5000` and bui
 
 #### When using the login feature with Facebook be sure that the URL is localhost:5000 and not 127.0.0.1:5000
 
-### How to get a YouTube Developer API key
+## How to test
+
+Run the test script
+```
+npm test
+```
+
+## How to get a your developer keys
+
+### YouTube Data API key:
 
 Visit [YouTube's API docs](https://developers.google.com/youtube/v3/getting-started) for how to get the api key.
 
-### How to get a Twitter consumer key and consumer secret
+### Twitter consumer key and consumer secret:
 
 Head over to [Twitter's Developer Platform](https://developer.twitter.com/) and create a new app.
 
-### How to get a Facebook app id and app secret
+### Facebook app id and app secret:
 
 Create a new app on [Facebook's Developer Platform](https://developers.facebook.com/).

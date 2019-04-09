@@ -10,7 +10,7 @@
     "start": "./node_modules/.bin/concurrently \"node index.js\" \"cd client && npm run build\"",
     "install-client": "cd client && npm install && cd ..",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": ""
+    "test": "node_modules/.bin/_mocha"
   },
   "engines": {
     "node": "11.9.0"
@@ -31,6 +31,9 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "concurrently": "^4.1.0",
+    "mocha": "^6.1.2"
   }
 }

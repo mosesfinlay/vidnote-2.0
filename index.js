@@ -126,3 +126,5 @@ app.use((err, req, res, next) => {
 
 // Listen on the set port
 app.listen(port, () => console.log(`The app is listening on port: ${port}`));
+
+module.exports = app;
