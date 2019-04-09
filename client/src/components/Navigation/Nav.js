@@ -36,10 +36,11 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top px-5">
         <Link className="text-reset text-decoration-none" to="/">
-          <h2>vidnote</h2>
+          <h2 className="d-inline mr-2">vidnote</h2>
+          <span>A simple note-taking app for YouTube videos.</span>
         </Link>
         
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler mt-2" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         
