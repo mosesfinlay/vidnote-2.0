@@ -35,7 +35,7 @@ function generateOrFindUser(accessToken, refreshToken, profile, done) {
         email: profile.emails[0].value,
         photo: profile.photos[0].value
       }, 
-      { upsert: true }, 
+      { upsert: true, new: true }, 
       done
     );
   } else {
