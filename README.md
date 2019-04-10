@@ -84,6 +84,11 @@ To view the app: Running `npm start` will run the project on `port:5000` and bui
 
 ## How to test
 
+Start MongoDB in a new terminal tab
+```
+mongod
+```
+
 Run the test script
 ```
 npm test
