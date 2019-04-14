@@ -55,9 +55,9 @@ class LoginForm extends Component {
           
           <Error error={error} />
 
-          <a href="/api/auth/twitter" className="btn mr-3 mb-3">Login with Twitter</a>
+          <a href="/api/auth/twitter" className="btn btn-border mr-3 mb-3">Login with Twitter</a>
           or
-          <a href="/api/auth/facebook" className="btn ml-3 mb-3">Login with Facebook</a>
+          <a href="/api/auth/facebook" className="btn btn-border ml-3 mb-3">Login with Facebook</a>
         </div>
       );
     }

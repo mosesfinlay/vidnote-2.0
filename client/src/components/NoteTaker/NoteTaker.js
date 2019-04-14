@@ -9,7 +9,7 @@ import UpdateVideo from "./UpdateVideo";
 import EmailButton from "./EmailButton";
 import NoteList from "./NoteList";
 import Error from "../Misc/Error";
-import { getOneVideo, getVideoInfo } from "../../apiRequests";
+import { getOneVideo, getVideoInfo, getUserAccount } from "../../apiRequests";
 
 class NoteTaker extends Component {
   state = {
@@ -53,6 +53,7 @@ class NoteTaker extends Component {
   }
 
   // YouTube
+  seekTo = time => this.state.player.seekTo(time);
   setVideoURL = url => this.setState({ videoURL: url });
   playVideo = () => this.state.player.getInternalPlayer().playVideo();
   pauseVideo = () => this.state.player.getInternalPlayer().pauseVideo();
@@ -88,9 +89,36 @@ class NoteTaker extends Component {
         }
       });
     } else {
-      this.setState({
-        videoURL: "https://www.youtube.com/watch?v=Tq96cQvIsIA"
-      })
+      getUserAccount(({ data }) => {
+        if (data.status === 200) {
+          this.setState({ 
+            videoURL: "https://www.youtube.com/watch?v=hf98rpd7LOw",
+            notes: []
+          });
+        } else {
+          this.setState({
+            videoURL: "https://www.youtube.com/watch?v=hf98rpd7LOw",
+            notes: [
+              { 
+                text: "Paste YouTube video URL", 
+                timeStamp: 9
+              },
+              { 
+                text: "Take notes", 
+                timeStamp: 18
+              },
+              { 
+                text: "Save your notes", 
+                timeStamp: 35
+              },
+              { 
+                text: "Share your notes", 
+                timeStamp: 42
+              }
+            ]
+          });
+        }
+      });
     }
   }
 
@@ -128,8 +156,7 @@ class NoteTaker extends Component {
       return (
         <React.Fragment>
           <div className="col-lg-6 pb-5">
-            <h5 className="mb-4 text-muted">{this.state.videoTitle}</h5>
-            <hr />
+            <h5 className="mb-3 text-muted">{this.state.videoTitle}</h5>
             {
               error ?
                 <Error error={error} />
@@ -182,6 +209,7 @@ class NoteTaker extends Component {
               notes={notes}
               deleteNote={this.deleteNote}
               deleteAllNotes={this.deleteAllNotes}
+              seekTo={this.seekTo}
             />
           </div>
         </React.Fragment>

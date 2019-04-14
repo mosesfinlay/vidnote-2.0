@@ -1,7 +1,7 @@
 body {
   font-family: "Noto Sans SC", sans-serif;
   color: #12263f;
-  background-color: #f9fbfd;
+  -webkit-font-smoothing: antialiased;
 }
 
 .small-icon {
@@ -22,23 +22,28 @@ body {
   color: #0056b3 !important;
 }
 
-.btn {
-  background-color: #12263f;
-  color: white;
+.btn-border {
+  box-shadow: inset 0px 0px 0px 2px rgb(52, 49, 49);
+  box-sizing: border-box;
 }
 
-.btn:hover {
+.btn-border:hover {
   background-color: #0056b3;
+  box-shadow: inset 0px 0px 0px 2px #0056b3;
   color: white;
 }
 
 .navbar-light {
-  border-bottom: 1px solid grey;
-  border: 1px solid #e3ebf6;
+  border-bottom: 3px solid #e3ebf6;
 }
 
-li.list-group-item, .card {
-  box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, .03);
+.timestamp:hover {
+  cursor: pointer;
+}
+
+li.list-group-item, .card, .shadow {
+  box-shadow: 0 0 10px rgba(18, 38, 63, .15);
+  border: none;
 }
 
 .note-list {
@@ -56,4 +61,8 @@ li.list-group-item, .card {
 
 .twitter-blue {
   color: #38A1F3;
+}
+
+.youtube-red {
+  color: #f00 !important;
 }

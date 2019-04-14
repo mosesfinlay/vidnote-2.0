@@ -15,8 +15,8 @@ class Video extends Component {
               <h5 className="card-title">{title.length > 20 ? `${title.slice(0, 20)}...` : title}</h5>
             </a>
             <p className="card-text">{videoDuration} min watch</p>
-            <Link to={`/videos/${id}`} className="btn mr-3 mb-1">View Notes</Link>
-            <Link to={`/videos/${id}/delete`} className="btn mb-1">Delete Video</Link>
+            <Link to={`/videos/${id}`} className="btn btn-border mr-3 mb-1">View Notes</Link>
+            <Link to={`/videos/${id}/delete`} className="btn btn-border mb-1">Delete Video</Link>
           </div>
         </div>
       </div>

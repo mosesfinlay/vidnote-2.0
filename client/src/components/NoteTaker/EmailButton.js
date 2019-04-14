@@ -40,7 +40,7 @@ class EmailButton extends Component {
     
     return (
       <a className="text-reset text-decoration-none" href={`mailto:${emailTo}?subject=${emailSubject}&body=${emailBody}`}>
-        <button type="button" className="btn">Email Notes</button>
+        <button type="button" className="btn btn-border">Email Notes</button>
       </a>
     );
   }

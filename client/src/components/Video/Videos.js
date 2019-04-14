@@ -51,7 +51,7 @@ class Videos extends Component {
           <h1 className="mb-5">Videos</h1>
           <Error error={error} />
 
-          <Link className="btn text-white mb-3" to="/">New Video</Link>
+          <Link className="btn btn-border mb-3" to="/">New Video</Link>
           
           <div className="row mb-5">
             { videos.length === 0 ?
