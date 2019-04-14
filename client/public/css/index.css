@@ -34,7 +34,8 @@ body {
 }
 
 .navbar-light {
-  border-bottom: 3px solid #e3ebf6;
+  /* border-bottom: 2px solid rgba(18, 38, 63, .15); */
+  box-shadow: 0 0 10px rgba(18, 38, 63, .15);
 }
 
 .timestamp:hover {

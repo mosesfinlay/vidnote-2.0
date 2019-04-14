@@ -162,7 +162,7 @@ class NoteTaker extends Component {
                 <Error error={error} />
               : null
             }
-            <div className="border rounded p-3 bg-white mb-5">
+            <div className="border rounded p-3 bg-white">
               <div className="embed-responsive embed-responsive-16by9 border mb-4">
                 <YouTube 
                   url={videoURL}
@@ -183,6 +183,7 @@ class NoteTaker extends Component {
                 newNote={this.newNote}
                 getCurrentTime={this.getCurrentTime}
               />
+
               <div className="d-flex justify-content-end">
                 <EmailButton
                   notes={notes}
@@ -198,6 +199,10 @@ class NoteTaker extends Component {
                 }
               </div>
             </div>
+
+            <p className="pt-2 mb-0 ml-auto">
+              made by <a href="https://moses.dev" className="text-reset text-decoration-none border-bottom">moses</a>
+            </p>
           </div>
           <div className="col-lg-6 pb-5">
             <h3 className="mb-4">

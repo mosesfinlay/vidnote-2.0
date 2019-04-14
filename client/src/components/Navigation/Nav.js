@@ -34,7 +34,7 @@ class Nav extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top px-5">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top px-5">
         <Link className="text-reset text-decoration-none" to="/">
           <h2 className="d-inline mr-2">vidnote</h2>
         </Link>
