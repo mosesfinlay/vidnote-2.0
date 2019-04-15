@@ -26,7 +26,7 @@ class Nav extends Component {
         </button>
         
         <div className="collapse navbar-collapse" id="navbarColor01">
-          <span className="mt-2">A simple note-taking app for YouTube videos.</span>
+          <span className="mt-2">Extremely simple note-taking for YouTube videos.</span>
           <ul className="navbar-nav ml-auto">
             {navItemsJSX}
           </ul>

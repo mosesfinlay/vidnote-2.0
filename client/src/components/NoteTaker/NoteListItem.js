@@ -17,7 +17,7 @@ class NoteListItem extends Component {
           <div>
             <button className="btn bg-transparent px-1 pt-0 border-0">
               <a 
-                href={`http://twitter.com/home?status="${text}" - ${videoURL}=${timeStamp}s via @_vidnote`} 
+                href={`http://twitter.com/home?status="${text}" - ${videoURL}=${timeStamp}s via @realvidnote`} 
                 className="twitter-blue mb-0"
                 target="_blank"
                 rel="noopener noreferrer"
