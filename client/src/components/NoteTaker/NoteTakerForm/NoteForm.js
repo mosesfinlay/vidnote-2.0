@@ -42,14 +42,14 @@ class NoteForm extends Component {
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} autoComplete="off">
         <div className="input-group mb-3">
           <input type="text" className="form-control" name="text" placeholder="Enter note" aria-label="Enter note" aria-describedby="basic-addon2" 
             value={this.state.text}
             onChange={this.handleInputChange}
           />
           <div className="input-group-append">
-            <button className="btn btn-border" type="submit">{this.state.buttonText}</button>
+            <button className="btn border-copy" type="submit">{this.state.buttonText}</button>
           </div>
         </div>
       </form>

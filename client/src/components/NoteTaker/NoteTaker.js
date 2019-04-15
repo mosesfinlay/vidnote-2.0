@@ -156,14 +156,16 @@ class NoteTaker extends Component {
       return (
         <React.Fragment>
           <div className="col-lg-6 pb-5">
-            <h5 className="mb-3 text-muted">{this.state.videoTitle}</h5>
+            <h3 className="mb-3">
+              Title: <span className="small text-muted">{this.state.videoTitle}</span>
+            </h3>
             {
               error ?
                 <Error error={error} />
               : null
             }
-            <div className="border rounded p-3 bg-white">
-              <div className="embed-responsive embed-responsive-16by9 border mb-4">
+            <div className="border rounded bg-white">
+              <div className="embed-responsive embed-responsive-16by9 solid-bottom-border mb-0">
                 <YouTube 
                   url={videoURL}
                   onReady={this.playerOnReady}
@@ -171,41 +173,45 @@ class NoteTaker extends Component {
                   height="360"
                 />
               </div>
-              {this.props.disableUrlForm ? null:
-                <URLForm
-                  setVideoURL={this.setVideoURL}
-                  setError={this.setError}
-                />
-              }
-              <NoteForm
-                playVideo={this.playVideo}
-                pauseVideo={this.pauseVideo}
-                newNote={this.newNote}
-                getCurrentTime={this.getCurrentTime}
-              />
-
-              <div className="d-flex justify-content-end">
-                <EmailButton
-                  notes={notes}
-                  videoURL={videoURL}
-                />
-                {
-                  this.props.match !== null ?
-                    <UpdateVideo 
-                      match={this.props.match}
-                      notes={notes}
-                    />
-                  : saveVideo
+              <div className="p-3">
+                {this.props.disableUrlForm ? null:
+                  <URLForm
+                    setVideoURL={this.setVideoURL}
+                    setError={this.setError}
+                  />
                 }
+                <NoteForm
+                  playVideo={this.playVideo}
+                  pauseVideo={this.pauseVideo}
+                  newNote={this.newNote}
+                  getCurrentTime={this.getCurrentTime}
+                />
+
+                <div className="d-flex justify-content-between">
+                  <div>
+                    {
+                      this.props.match !== null ?
+                        <UpdateVideo 
+                          match={this.props.match}
+                          notes={notes}
+                        />
+                      : saveVideo
+                    }
+                    <EmailButton
+                      notes={notes}
+                      videoURL={videoURL}
+                    />
+                  </div>
+                  
+                  <p className="p-2 mb-0">
+                    made by <a href="https://moses.dev" className="text-reset text-decoration-none border-bottom">moses</a>
+                  </p>
+                </div>
               </div>
             </div>
-
-            <p className="pt-2 mb-0 ml-auto">
-              made by <a href="https://moses.dev" className="text-reset text-decoration-none border-bottom">moses</a>
-            </p>
           </div>
           <div className="col-lg-6 pb-5">
-            <h3 className="mb-4">
+            <h3 className="mb-3">
               Notes
               <span className="small text-muted">{` (${notes.length})`}</span>
             </h3>

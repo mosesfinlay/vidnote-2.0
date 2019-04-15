@@ -49,7 +49,7 @@ class SaveVideo extends Component {
 
   render() {
     return (
-      <button type="button" className="btn ml-3 btn-border" onClick={() => this.submitVideo()}>
+      <button type="button" className="btn btn-border mr-3" onClick={() => this.submitVideo()}>
         Save Notes
       </button>
     );

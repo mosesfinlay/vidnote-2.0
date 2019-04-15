@@ -33,14 +33,14 @@ class App extends Component {
 
     if (this.state.loggedIn) {
       items.push(
-        { title: "Home", to: "/", icon: "home" },
-        { title: "Videos", to: "/videos", icon: "document" },
-        { title: "Account", to: "/account", icon: "account" },
-        { title: "Logout", to: "/logout", icon: "home" }
+        { title: "Home", to: "/" },
+        { title: "Videos", to: "/videos" },
+        { title: "Account", to: "/account" },
+        { title: "Logout", to: "/logout" }
       );
     } else {
       items.push(
-        { title: "Login", to: "/login", icon: "home"}
+        { title: "Login", to: "/login" }
       );
     }
 

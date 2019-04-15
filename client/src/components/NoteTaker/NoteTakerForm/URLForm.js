@@ -39,7 +39,7 @@ class URLForm extends Component {
             onChange={this.handleInputChange}
           />
           <div className="input-group-append">
-            <button className="btn btn-border" type="submit">{this.state.buttonText}</button>
+            <button className="btn border-url" type="submit">{this.state.buttonText}</button>
           </div>
         </div>
       </form>

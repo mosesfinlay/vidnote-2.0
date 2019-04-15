@@ -1,12 +1,11 @@
 body {
-  font-family: "Noto Sans SC", sans-serif;
+  font-family: "Noto Sans SC", Arial, Helvetica, sans-serif;
   color: #12263f;
-  -webkit-font-smoothing: antialiased;
 }
 
 .small-icon {
   width: 20px;
-  height: 20px;
+  height: 20px; 
 }
 
 .nav-link {
@@ -23,7 +22,7 @@ body {
 }
 
 .btn-border {
-  box-shadow: inset 0px 0px 0px 2px rgb(52, 49, 49);
+  box-shadow: inset 0px 0px 0px 2px #12263f;
   box-sizing: border-box;
 }
 
@@ -33,9 +32,25 @@ body {
   color: white;
 }
 
+.border-copy, .border-url {
+  border: 1px solid #12263f;
+  box-shadow: inset 0px 0px 0px 1px #12263f;
+  box-sizing: border-box;
+}
+
+.border-copy:hover, .border-url:hover {
+  border: 1px solid #0056b3;
+  background-color: #0056b3;
+  box-shadow: inset 0px 0px 0px 1px #0056b3;
+  color: white;
+}
+
 .navbar-light {
-  /* border-bottom: 2px solid rgba(18, 38, 63, .15); */
   box-shadow: 0 0 10px rgba(18, 38, 63, .15);
+}
+
+.solid-bottom-border {
+  border-bottom: 2px solid rgba(69, 66, 66, 0.2);
 }
 
 .timestamp:hover {
