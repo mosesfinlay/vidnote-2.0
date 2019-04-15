@@ -174,18 +174,18 @@ class NoteTaker extends Component {
                 />
               </div>
               <div className="p-3">
-                {this.props.disableUrlForm ? null:
-                  <URLForm
-                    setVideoURL={this.setVideoURL}
-                    setError={this.setError}
-                  />
-                }
                 <NoteForm
                   playVideo={this.playVideo}
                   pauseVideo={this.pauseVideo}
                   newNote={this.newNote}
                   getCurrentTime={this.getCurrentTime}
                 />
+                {this.props.disableUrlForm ? null:
+                  <URLForm
+                    setVideoURL={this.setVideoURL}
+                    setError={this.setError}
+                  />
+                }
 
                 <div className="d-flex justify-content-between">
                   <div>
