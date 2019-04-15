@@ -54,10 +54,7 @@ class Videos extends Component {
           <Link className="btn btn-border mb-3" to="/">New Video</Link>
           
           <div className="row mb-5">
-            { videos.length === 0 ?
-              <h4 className="mt-4">No videos yet!</h4>
-            : 
-              videos.map(({ title, duration, url, thumbnail, _id }, index) => 
+            {videos.map(({ title, duration, url, thumbnail, _id }, index) => 
                 <Video 
                   title={title}
                   duration={duration}
