@@ -1,6 +1,6 @@
 { 
   "short_name": "vidNote",
-  "name": "A Simple Note-taking App For YouTube Videos",
+  "name": "A simple note-sharing app for YouTube videos",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
