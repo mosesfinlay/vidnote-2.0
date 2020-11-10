@@ -29,13 +29,13 @@ function callbackUrl(provider) {
 function generateOrFindUser(accessToken, refreshToken, profile, done) {
   if (profile.emails) {
     User.findOneAndUpdate(
-      { email: profile.emails[0].value }, 
-      { 
+      { email: profile.emails[0].value },
+      {
         name: profile.displayName || profile.username,
         email: profile.emails[0].value,
         photo: profile.photos[0].value
-      }, 
-      { upsert: true, new: true }, 
+      },
+      { upsert: true, new: true },
       done
     );
   } else {
@@ -44,7 +44,7 @@ function generateOrFindUser(accessToken, refreshToken, profile, done) {
   }
 }
 
-// Configure Twitter Strategy 
+// Configure Twitter Strategy
 passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
@@ -52,7 +52,7 @@ passport.use(new TwitterStrategy({
   callbackURL: callbackUrl("twitter")
 }, generateOrFindUser));
 
-// Configure Facebook Strategy 
+// Configure Facebook Strategy
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
@@ -78,7 +78,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 
 // Connect to the database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/vidnote");
+mongoose.connect(process.env.DB_URI || "mongodb://localhost:27017/vidnote");
 
 const db = mongoose.connection;
 
